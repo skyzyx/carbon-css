@@ -1,0 +1,104 @@
+/* Copyright (c) 2007-Present, Ryan Parman <ryan@ryanparman.com>
+   Portions from Normalize.css, copyright (c) 2011-Present, Nicolas Gallagher <http://nicolasgallagher.com>
+   Avalilable for use under the terms of the MIT license. */
+
+@sizes: {
+  h1: 2.5rem;
+  h2: 1.8rem;
+  h3: 1.5rem;
+  h4: 1rem;
+  h5: 0.875rem;
+  h6: 0.7rem;
+}
+
+//------------------------------------------------------------------------------
+
+.mixin-h2() {
+  font-size: @sizes[h2];
+  letter-spacing: -0.07rem;
+  line-height: 1.3em;
+}
+
+.mixin-h3() {
+  font-size: @sizes[h3];
+  letter-spacing: -0.04rem;
+  line-height: 1.4em;
+}
+
+.mixin-h4() {
+  font-size: @sizes[h4];
+  letter-spacing: 0;
+  line-height: 1.5em;
+}
+
+.mixin-h5() {
+  font-size: @sizes[h5];
+  letter-spacing: 0;
+  line-height: 1.5em;
+}
+
+.mixin-h6() {
+  font-size: @sizes[h6];
+  letter-spacing: 0;
+  line-height: 1.5em;
+}
+
+//------------------------------------------------------------------------------
+
+h1, h2, h3, h4, h5, h6 {
+  padding: 1em 0 0.2em 0;
+  margin: 0;
+  font-family: @fonts[body];
+  color: #333;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: @sizes[h1];
+  letter-spacing: -0.125rem;
+  line-height: 1.2em;
+
+  & small {
+    .mixin-h2();
+  }
+}
+
+h2 {
+  .mixin-h2();
+
+  & small {
+    .mixin-h3();
+  }
+}
+
+h3 {
+  .mixin-h3();
+
+  & small {
+    .mixin-h4();
+  }
+}
+
+h4 {
+  .mixin-h4();
+
+  & small {
+    .mixin-h5();
+  }
+}
+
+h5 {
+  .mixin-h5();
+
+  & small {
+    .mixin-h6();
+  }
+}
+
+h6 {
+  .mixin-h6();
+}

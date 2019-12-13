@@ -1,0 +1,29 @@
+/* Copyright (c) 2007-Present, Ryan Parman <ryan@ryanparman.com>
+   Portions from Normalize.css, copyright (c) 2011-Present, Nicolas Gallagher <http://nicolasgallagher.com>
+   Avalilable for use under the terms of the MIT license. */
+
+@table-border: #ccc;
+@table-header-bg: @table-border;
+
+table {
+  max-width: 100%;
+  margin: 1em 0;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid @table-border;
+
+  & tr th {
+    background-color: @table-header-bg;
+  }
+
+  & tr th,
+  & tr td {
+    border: 1px solid @table-border;
+    padding: 10px;
+
+    & > p:first-child {
+      margin-top: 0;
+    }
+  }
+}

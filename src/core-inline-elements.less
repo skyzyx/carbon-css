@@ -1,0 +1,77 @@
+/* Copyright (c) 2007-Present, Ryan Parman <ryan@ryanparman.com>
+   Portions from Normalize.css, copyright (c) 2011-Present, Nicolas Gallagher <http://nicolasgallagher.com>
+   Avalilable for use under the terms of the MIT license. */
+
+a {
+  display: inline-block;
+  background-color: transparent;
+  color: @colors[link];
+  text-decoration: none;
+  border-bottom: 1px dotted @colors[link];
+  transition: color .1s ease-in;
+
+  &:hover,
+  &:active {
+    outline: 0;
+  }
+
+  &:hover,
+  &:focus {
+    color: @colors[link-hover];
+    text-decoration: none;
+    border-bottom: 1px solid @colors[link-hover];
+  }
+
+  &:focus {
+    outline: thin dotted #333;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+
+  & img {
+    display: block;
+  }
+}
+
+sub,
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+img {
+  display: inline-block;
+  width: auto\9;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+  border: 0;
+  border-style: none;
+  -ms-interpolation-mode: bicubic;
+
+  &.block {
+    display: block;
+  }
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+  cursor: help;
+}

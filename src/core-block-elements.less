@@ -1,0 +1,138 @@
+/* Copyright (c) 2007-Present, Ryan Parman <ryan@ryanparman.com>
+   Portions from Normalize.css, copyright (c) 2011-Present, Nicolas Gallagher <http://nicolasgallagher.com>
+   Avalilable for use under the terms of the MIT license. */
+
+/* Paragraphs */
+
+p {
+  display: block;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+/* Standard Lists */
+
+ul, ol {
+  padding: 0;
+  margin: 0 0 0.75em 25px;
+}
+
+ul, ol {
+  & & {
+    margin-bottom: 0;
+  }
+}
+
+li {
+  line-height: 1.5em;
+}
+
+h1, h2, h3, h4, h5 {
+  li & {
+    padding-bottom: 0;
+  }
+}
+
+/* Definition Lists */
+
+dl {
+  margin-bottom: 1.5em;
+}
+
+dt, dd {
+  line-height: 1.5em;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0.75em;
+}
+
+/* Horizontal Rule */
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+
+  margin: 1.5em 0;
+  border: 0;
+  border-top: 1px dotted #cccccc;
+  border-bottom: 1px dotted #ffffff;
+}
+
+/* Quotes */
+
+blockquote {
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-color: #408bc9;
+  border-width: .25rem;
+  font-style: normal;
+  line-height: 1.5;
+  color: #444;
+  background-color: #eee;
+  padding: .3rem 2rem;
+  margin: 0;
+  font-size: 1rem;
+
+  &:before,
+  &:after {
+    content: "";
+  }
+
+  & p {
+    margin-bottom: 0;
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+
+  & small {
+    display: block;
+    line-height: 1.5em;
+    color: #999;
+
+    &:before {
+      content: '\2014 \00A0';
+    }
+  }
+}
+
+@media screen and (max-width: 60em) {
+  blockquote {
+    padding: 0.1rem 1rem;
+  }
+}
+
+q {
+  &:before {
+    content: "\201C";
+  }
+
+  &:after {
+    content: "\201D";
+  }
+}
+
+/* Other */
+
+details {
+  display: block;
+
+  & div.details {
+    padding: 0 0 0 2rem;
+  }
+}
+
+summary {
+  display: list-item;
+  cursor: pointer;
+}
+
+template {
+  display: none;
+}

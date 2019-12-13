@@ -1,0 +1,51 @@
+/* Copyright (c) 2007-Present, Ryan Parman <ryan@ryanparman.com>
+   Portions from Normalize.css, copyright (c) 2011-Present, Nicolas Gallagher <http://nicolasgallagher.com>
+   Avalilable for use under the terms of the MIT license. */
+
+pre,
+code,
+kbd,
+samp {
+  font-family: @fonts[mono];
+  font-size: 0.85rem;
+}
+
+pre {
+  background-color: rgb(34, 34, 34);
+  box-sizing: border-box;
+  color: rgb(221, 221, 221);
+  display: block;
+  position: static;
+  overflow: hidden;
+  max-width: 45rem;
+}
+
+code,
+kbd,
+samp {
+  display: inline-block;
+  padding: 1px 2px;
+  background-color: #f8f8ff;
+  color: #ba2121;
+  border: 1px solid #E5E5E5;
+  background-color: #F7F7F7;
+  border-radius: 3px;
+  white-space: nowrap;
+  font-smoothing: auto;
+}
+
+pre code {
+  display: block;
+  line-height: 1.3em;
+  margin: 0;
+  padding: 1.5em;
+  overflow-x: auto !important;
+  overflow-y: auto;
+  white-space: pre;
+  width: auto;
+
+  background-color: inherit;
+  color: inherit;
+  border: none;
+  border-radius: 0;
+}
