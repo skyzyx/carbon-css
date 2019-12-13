@@ -1,8 +1,22 @@
 {
-  "name": "@skyzyx/carbon-css",
+  "name": "carbon-css",
   "version": "2018.0.0",
   "description": "Carbon is a simple, clean stylesheet for content.",
-  "repository": "",
+  "keywords": [
+    "carbon",
+    "css",
+    "styles",
+    "stylesheet",
+    "stylesheets"
+  ],
+  "homepage": "https://github.com/skyzyx/carbon-css#readme",
+  "bugs": {
+    "url": "https://github.com/skyzyx/carbon-css/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skyzyx/carbon-css.git"
+  },
   "author": "Ryan Parman <ryan@ryanparman.com>",
   "license": "MIT",
   "scripts": {
