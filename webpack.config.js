@@ -1,25 +1,22 @@
-const devMode          = process.env.NODE_ENV !== 'production';
-const path             = require('path');
-const supportedLocales = ['en'];
+const devMode = process.env.NODE_ENV !== 'production';
+const path = require('path');
+const supportedLocales = [ 'en' ];
 
 // Require.js syntax
-const AssetsPlugin            = require('assets-webpack-plugin');
-const Autoprefixer            = require('autoprefixer');
-const CompressionPlugin       = require('compression-webpack-plugin');
-const MiniCssExtractPlugin    = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const SriPlugin               = require('webpack-subresource-integrity');
-const TerserJSPlugin          = require('terser-webpack-plugin');
-const WebPack                 = require('webpack');
+const AssetsPlugin = require('assets-webpack-plugin');
+const Autoprefixer = require('autoprefixer');
+const CompressionPlugin = require('compression-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const SriPlugin = require('webpack-subresource-integrity');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const WebPack = require('webpack');
 
 //------------------------------------------------------------------------------
 
 const miniCssLoader = {
   loader: MiniCssExtractPlugin.loader,
-  options: {
-      hmr: process.env.NODE_ENV === 'development',
-      reloadAll: true,
-  }
+  options: {}
 };
 
 //------------------------------------------------------------------------------
@@ -29,14 +26,15 @@ module.exports = {
   optimization: {
     minimize: true,
     minimizer: [
+      '...',
       new TerserJSPlugin({}),
-      new OptimizeCSSAssetsPlugin({}),
+      new CssMinimizerPlugin(),
     ],
   },
   plugins: [
     new WebPack.ContextReplacementPlugin(
       /date\-fns[\/\\]/,
-      new RegExp(`[/\\\\\](${supportedLocales.join('|')})[/\\\\\]`)
+      new RegExp(`[/\\\\\](${ supportedLocales.join('|') })[/\\\\\]`)
     ),
     new CompressionPlugin(),
     new MiniCssExtractPlugin({
@@ -50,7 +48,7 @@ module.exports = {
       prettyPrint: true,
     }),
     new SriPlugin({
-      hashFuncNames: ['sha256'],
+      hashFuncNames: [ 'sha256' ],
     }),
     Autoprefixer,
   ],
@@ -78,7 +76,7 @@ module.exports = {
     ],
   },
   resolve: {
-    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    modules: [ path.resolve(__dirname, 'src'), 'node_modules' ],
   },
   entry: {
     styles: path.resolve(__dirname, 'src/'),

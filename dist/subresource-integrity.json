@@ -1,14 +1,6 @@
 {
   "styles": {
-    "css": "carbon.css",
-    "cssIntegrity": "sha256-9FSMiIFWui83I0C1z7wvi1DN5szCTw967DOKTzTJsZQ=",
-    "js": "styles.js",
-    "jsIntegrity": "sha256-0E3J70vXdY5+GFhe7BezPtNZJW5+JV/8rfmlk6WNukI="
-  },
-  "": {
-    "gz": [
-      "carbon.css.gz",
-      "styles.js.gz"
-    ]
+    "css": "auto/carbon.css",
+    "js": "auto/styles.js"
   }
 }
