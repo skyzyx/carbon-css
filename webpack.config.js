@@ -34,7 +34,7 @@ module.exports = {
   plugins: [
     new WebPack.ContextReplacementPlugin(
       /date\-fns[\/\\]/,
-      new RegExp(`[/\\\\\](${ supportedLocales.join('|') })[/\\\\\]`)
+      new RegExp(`[/\\\\](${ supportedLocales.join('|') })[/\\\\]`)
     ),
     new CompressionPlugin(),
     new MiniCssExtractPlugin({
