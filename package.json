@@ -9,6 +9,18 @@
     "stylesheet",
     "stylesheets"
   ],
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "engines": {
+    "node": ">= 14"
+  },
+  "targets": {
+    "default": {
+      "distDir": "./dist",
+      "includeNodeModules": true,
+      "isLibrary": true,
+      "optimize": true
+    }
+  },
   "homepage": "https://github.com/skyzyx/carbon-css#readme",
   "bugs": {
     "url": "https://github.com/skyzyx/carbon-css/issues"
@@ -20,32 +32,34 @@
   "author": "Ryan Parman <ryan@ryanparman.com>",
   "license": "MIT",
   "scripts": {
-    "start": "npm run build",
-    "compile": "npm run clean && webpack --progress --color",
-    "build": "npm run clean && webpack --progress --color --watch",
-    "build:production": "npm run clean && NODE_ENV=production webpack --progress",
-    "clean": "rm -Rf dist/"
+    "build": "NODE_ENV=production npm-run-all prod:parcel",
+    "clean": "rm -Rf dist/",
+    "lint": "npm-run-all markdownlint",
+    "markdownlint": "markdownlint --fix '**/*.md' --ignore 'node_modules'",
+    "prod:parcel": "parcel build --no-cache --log-level=verbose src/carbon.less"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.8",
     "@babel/preset-env": "^7.16.11",
-    "assets-webpack-plugin": "^7.1.1",
-    "compression-webpack-plugin": "^9.2.0",
-    "css-loader": "^6.7.1",
-    "css-minimizer-webpack-plugin": "^3.4.1",
-    "cssnano": "^5.1.5",
+    "@hyqo/parcel-reporter-asset-map": "^1.0.3",
+    "@parcel/compressor-brotli": "^2.4.0",
+    "@parcel/compressor-gzip": "^2.4.0",
+    "@parcel/optimizer-esbuild": "^2.4.0",
+    "@parcel/resolver-glob": "^2.4.0",
+    "@parcel/transformer-less": "^2.4.0",
+    "graceful-fs": "^4.2.9",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
+    "markdownlint-cli": "^0.31.1",
     "mini-css-extract-plugin": "^2.6.0",
+    "npm-run-all": "^4.1.5",
+    "parcel": "^2.4.0",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "parcel-resolver-ignore": "^2.0.0",
     "postcss": "^8.4.12",
     "postcss-import": "^14.1.0",
     "postcss-loader": "^6.2.1",
-    "postcss-preset-env": "^7.4.3",
-    "style-loader": "^3.3.1",
-    "terser-webpack-plugin": "^5.3.1",
-    "webpack": "^5.70.0",
-    "webpack-cli": "^4.9.2",
-    "webpack-subresource-integrity": "^5.1.0"
+    "postcss-preset-env": "^7.4.3"
   }
 }
