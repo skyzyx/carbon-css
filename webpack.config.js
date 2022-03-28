@@ -47,9 +47,6 @@ module.exports = {
       integrity: true,
       prettyPrint: true,
     }),
-    new SriPlugin({
-      hashFuncNames: [ 'sha256' ],
-    }),
     Autoprefixer,
   ],
   module: {
