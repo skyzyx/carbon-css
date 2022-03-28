@@ -114,8 +114,7 @@ tag:
 version:
 	@echo "Current version: $(shell jq -r '.version' package.json)"
 	@read -p "Enter new version number: " nv && \
-		npm version --allow-same-version --no-commit-hooks --no-git-tag-version "$$nv" && \
-		sed -i -r "s/export const VERSION = '([^']+)'/export const VERSION = '$$nv'/" src/index.js;
+		npm version --allow-same-version --no-commit-hooks --no-git-tag-version "$$nv";
 
 .PHONY: publish
 ## publish: [release]* publishes the package to npm
