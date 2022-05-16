@@ -7,10 +7,13 @@ current_dir := $(dir $(mkfile_path))
 #-------------------------------------------------------------------------------
 # Global stuff.
 
+GO=$(shell which go)
+BREW_PREFIX=$(shell brew --prefix)
+
 # Determine which version of `echo` to use. Use version from coreutils if available.
-ECHOCHECK := $(shell command -v /usr/local/opt/coreutils/libexec/gnubin/echo 2> /dev/null)
+ECHOCHECK := $(shell command -v $(BREW_PREFIX)/opt/coreutils/libexec/gnubin/echo 2> /dev/null)
 ifdef ECHOCHECK
-    ECHO=/usr/local/opt/coreutils/libexec/gnubin/echo
+    ECHO="$(BREW_PREFIX)/opt/coreutils/libexec/gnubin/echo" -e
 else
     ECHO=echo
 endif
@@ -28,7 +31,7 @@ help:
 	@ sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' | sed -e 's/^/ /' | \
 		while IFS= read -r line; do \
 			if [[ "$$line" == *"]*"* ]]; then \
-				$(ECHO) -e "\033[1;33m$$line\033[0m"; \
+				$(ECHO) "\033[1;33m$$line\033[0m"; \
 			else \
 				$(ECHO) "$$line"; \
 			fi; \
